@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <div id="app">
+      <h1>{{ nama }}</h1>
+      <h2>{{ message }}</h2>
+      <hr>
+      <label>Nama : {{ obj.name }}</label> <br>
+      <label>Umur : {{ obj.age }} Tahun</label> <br>
+      <label>Gender : {{ obj.gender == true ? "LAKI-LAKI" : "PEREMPUAN" }}</label> <br>
+      <label>Hobby : {{ obj.hobby }}</label> <br>
+      <label>Sekolah : {{ obj.school }}</label>
+      
+   </div>
+
+   <script src="lib/vue.js"></script>
+   
+   <script type="text/javascript">
+      var vm = new Vue({
+         el: "#app",
+         data: {
+            nama: "Agus Prasetyo",
+            message: "Hallo dunia baru !!",
+            
+            obj : {
+               name: "Agus Prasetyo",
+               age: 21,
+               gender: true,
+               hobby: ["Ngoding", "Tidur", "PS an", "Futsal"],
+               school: {
+                  1: "TK Pertiwi",
+                  2: "SDN Gesikharjo 1",
+                  3: "SMPN 1 Palang"
+               }
+            }
+         },
+         
+      })
+      
+   </script>
+</body>
+</html>

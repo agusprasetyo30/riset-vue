@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+<div id="app">
+   <h1>{{ message }}</h1>
+</div>
+
+<script src="lib/vue.js"></script>
+
+<script text="text/javascript">
+   var vm = new Vue({
+      el: "#app",
+      data: {
+         message: "Haloo ini bagian hook"
+      },
+      //CREATE (Untuk mengakses data akan tetapi tidak DOM)
+      // beforeCreate() {
+         // console.log("before create : message = " + this.message);
+      // },
+      // created() {
+         // console.log("create : message = " + this.$data);
+      // },
+
+      //MOUTH (Untuk mengakses data DOM)
+      // beforeMount() {
+         // console.log("before mount : el = " + this.$el.textContent);
+         // console.log(this.$el);
+      // },
+      // mounted() {
+      //    console.log("before mount : el = " + this.$el.textContent);
+      //    console.log(this.$el);
+      // },
+
+      //UPDATE (Untuk melihat perubahan pada data)
+      // beforeUpdate() {
+      //    console.log("before update : el = " + this.$el.textContent);
+      // },
+      // updated() {
+      //    console.log("update : el = " + this.$el.textContent);
+      // },
+
+      //DESTROY ()
+      // beforeDestroy() {
+      //    console.log("Before destroy");
+      // },
+      // destroyed() {
+      //    console.log("Destroy");
+      // },
+   })
+
+   // Update
+   // vm.$watch('message', function(newValue, oldValue) {
+   //    console.log("Var yang diubah dari " + oldValue + " menjadi " + newValue);
+   // })
+
+   // vm.message = "Ini diedit"
+   // 
+
+   // Destroy
+   // vm.$destroy()
+   //
+</script>
+
+</body>
+</html>
