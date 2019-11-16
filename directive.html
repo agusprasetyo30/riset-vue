@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+
+   <style>
+      .title {
+         color: green;
+      }
+   </style>
+</head>
+<body>
+   <div id="app">
+      <h1 v-once>{{ v_once }}</h1>
+      <h1 v-html="v_html"></h1>
+      <h1 v-bind:class="v_class">{{ pesan }}</h1>
+      <hr>
+      <label>Contoh : </label> <br>
+      <h1>Method</h1>
+      <h3>{{ counter }}</h3>
+      <button onclick="vm.increment()">Tambah [ + ]</button>
+
+      <h1>Computed</h1>
+      <h3>{{ dataComputed }}</h3>
+      
+      <h1>Filters</h1>
+      <h3>{{ price | formatCurrency("IDR") }}</h3>
+      <h3>UPPER = {{ pesan | upper }}</h3>
+      <h3>REVERSE = {{ pesan | reverse }}</h3>
+      <h3>UPPER & REVERSE = {{ pesan | reverse | upper }}</h3>
+   </div>
+
+   <script src="lib/vue.js"></script>
+   
+   <script type="text/javascript">
+   Vue.config.silent = true
+      var vm = new Vue({
+         el: "#app",
+         data: {
+            counter: 0,
+            v_once: "Ini pesan loooo",
+            v_html: "<span style='color:red'>Hello World!</a>",
+            pesan: "Hello Dunia!",
+            v_class: "title",
+            price: 10000,
+         },
+         methods: {
+            increment() {
+               this.counter++
+            }
+         },
+         computed: {
+            dataComputed() {
+               return "Ini bagian computed lhoo"
+            }
+         },
+         filters: {
+            formatCurrency(value, currency) {
+               var formatter = new Intl.NumberFormat("id-ID", {
+                  style: 'currency',
+                  currency: currency,
+                  minimumFractionDigits: 2,
+               });
+
+               return formatter.format(value)
+            },
+            upper(text) {
+               return text.toUpperCase()
+            },
+            reverse(text) {
+               return text.split('').reverse().join('')
+            }
+         }
+         // Penggunaan template
+            // template: "<h3>ini h3 lhooo</h3>"
+            // render(h) {
+               // return h('h1', this.pesan)
+            // },
+         // 
+      })
+      
+   </script>
+</body>
+</html>
